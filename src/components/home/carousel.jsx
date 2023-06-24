@@ -6,7 +6,7 @@ import { Pagination, Navigation, Autoplay } from 'swiper'
 import Axios from 'axios'
 import { useEffect, useState } from 'react'
 import { Box, Flex, Heading, Image, Stack, Text } from '@chakra-ui/react'
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 export const Carousel = () => {
   const [blog, setBlog] = useState([])

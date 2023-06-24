@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Axios from "axios"
 import { Formik } from "formik"
 import { useState } from "react"
-import { useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
 
 

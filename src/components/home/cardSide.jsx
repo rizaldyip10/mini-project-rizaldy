@@ -1,4 +1,4 @@
-import { HStack, VStack, Tab, TabList, TabPanel, TabPanels, Tabs, Box, Image, Text, Flex, Divider } from "@chakra-ui/react"
+import { Tab, TabList, TabPanel, TabPanels, Tabs, Box, Image, Text, Flex } from "@chakra-ui/react"
 import { useEffect, useState } from "react"
 import Axios from 'axios'
 import { useNavigate } from "react-router-dom"

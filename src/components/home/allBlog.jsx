@@ -26,10 +26,6 @@ export const AllBlogCard = () => {
         }
     }
 
-    const goToPage = (pageNum) => {
-        getBlog(pageNum)
-    }
-
     const goToPrevPage = () => {
         if(page > 1) {
             getBlog(page - 1)

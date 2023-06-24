@@ -1,4 +1,4 @@
-import { Box, Button, Flex, HStack, InputGroup, InputLeftElement, InputRightElement, Text, VStack, useToast } from "@chakra-ui/react"
+import { Box, Button, Flex, InputGroup, InputRightElement, Text, VStack, useToast } from "@chakra-ui/react"
 import InputField from "../form/inputField"
 import { useState } from "react"
 import { Form, Formik } from "formik"
@@ -75,7 +75,7 @@ export const PasswordChange = () => {
                                 <InputField name="currentPassword" type={show ? 'text' : 'password'} h="35px" w="300px" color="#FF4C29" placeholder="Current password" _placeholder={{color: "#FF4C29"}} _hover={{borderColor: "white"}} focusBorderColor="#FF4C29"/>
                                     <InputRightElement>
                                         <Button onClick={handleClick} variant="none" mt="10px">
-                                            {show ? <ViewOffIcon /> : <ViewIcon />}
+                                            {show ? <ViewOffIcon color="#FF4C29" /> : <ViewIcon color="#FF4C29" />}
                                         </Button>
                                     </InputRightElement>
                                 </InputGroup>
@@ -83,7 +83,7 @@ export const PasswordChange = () => {
                                 <InputField name="password" type={show ? 'text' : 'password'} h="35px" w="300px" color="#FF4C29" placeholder="New password" _placeholder={{color: "#FF4C29"}} _hover={{borderColor: "white"}} focusBorderColor="#FF4C29"/>
                                     <InputRightElement>
                                         <Button onClick={handleClick} variant="none" mt="10px">
-                                            {show ? <ViewOffIcon /> : <ViewIcon />}
+                                            {show ? <ViewOffIcon color="#FF4C29" /> : <ViewIcon color="#FF4C29" />}
                                         </Button>
                                     </InputRightElement>
                                 </InputGroup>
@@ -91,7 +91,7 @@ export const PasswordChange = () => {
                                 <InputField name="confirmPassword" type={show ? 'text' : 'password'} h="35px" w="300px" color="#FF4C29" placeholder="Confirm new password" _placeholder={{color: "#FF4C29"}} _hover={{borderColor: "white"}} focusBorderColor="#FF4C29"/>
                                     <InputRightElement>
                                         <Button onClick={handleClick} variant="none" mt="10px">
-                                            {show ? <ViewOffIcon /> : <ViewIcon />}
+                                            {show ? <ViewOffIcon color="#FF4C29" /> : <ViewIcon color="#FF4C29" />}
                                         </Button>
                                     </InputRightElement>
                                 </InputGroup>

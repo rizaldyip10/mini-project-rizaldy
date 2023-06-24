@@ -15,14 +15,6 @@ import { setValue } from "./redux/userSlice";
 import { ResetPage } from "./pages/resetPage";
 import { CreateBlog } from "./pages/createBlog";
 import { BlogPage } from "./pages/blogPage";
-import { CatPage } from "./pages/catPage";
-import { BisnisCard } from "./components/category-page/bisnis";
-import { EkonomiCard } from "./components/category-page/ekonomi";
-import { TechCard } from "./components/category-page/teknologi";
-import { SportsCard } from "./components/category-page/olahraga";
-import { KulinerCard } from "./components/category-page/kuliner";
-import { InterCard } from "./components/category-page/inter";
-import { FiksiCard } from "./components/category-page/fiksi";
 
 const router = createBrowserRouter([
   {path: '/', element: <Home />},

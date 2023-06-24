@@ -1,6 +1,5 @@
-import { Avatar, Box, Button, Flex, HStack, Heading, IconButton, Image, Popover, PopoverArrow, PopoverBody, PopoverContent, PopoverTrigger, Stack, Tab, TabList, TabPanel, TabPanels, Tabs, Text } from "@chakra-ui/react"
+import { Avatar, Box, Flex, HStack, Heading, Image, Tab, TabList, TabPanel, TabPanels, Tabs, Text } from "@chakra-ui/react"
 import { useEffect, useState } from "react"
-import { useSelector } from "react-redux"
 import Axios from 'axios'
 import { UsernameChange } from "./changeUsername"
 import { EmailChange } from "./changeEmail"
@@ -8,10 +7,8 @@ import { PhoneChange } from "./changePhone"
 import { PasswordChange } from "./changePass"
 import { PicChange } from "./changePic"
 import { useNavigate } from "react-router-dom"
-import { BsThreeDotsVertical } from "react-icons/bs";
 
 export const UserTabs = () => {
-    const username = useSelector((state) => state.user.value.username)
     const [blog, setBlog] = useState()
     const [like, setLike] = useState()
     const token = localStorage.getItem("token")

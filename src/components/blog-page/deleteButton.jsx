@@ -2,7 +2,6 @@ import { Box, Button } from "@chakra-ui/react"
 import { faTrash } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Axios from "axios"
-import { useSelector } from "react-redux"
 import { useNavigate, useParams } from "react-router-dom"
 
 

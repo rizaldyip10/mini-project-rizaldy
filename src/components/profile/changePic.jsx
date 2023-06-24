@@ -1,16 +1,12 @@
-import { Box, Button, Flex, FormControl, FormErrorMessage, FormLabel, Input, InputGroup, Text, useToast } from "@chakra-ui/react"
+import { Box, Button, Flex, FormControl, FormLabel, Input, InputGroup, useToast } from "@chakra-ui/react"
 import { Field, Form, Formik } from "formik"
 import Axios from "axios"
 import * as Yup from "yup"
-import InputField from "../form/inputField"
 import { useState } from "react"
-import { useNavigate } from "react-router-dom"
-import { BsWindowSidebar } from "react-icons/bs"
 
 
 export const PicChange = () => {
     const [file, setFile] = useState(null)
-    const navigate = useNavigate()
     const token = localStorage.getItem("token")
     const toast = useToast()
 
