@@ -91,7 +91,7 @@ export const UserTabs = () => {
                     </Flex>
                 </TabPanel>
                 <TabPanel>
-                    <Text fontWeight="bold" fontSize="18px">Profile setting</Text>
+                    <Text fontWeight="bold" fontSize="18px" color="#FF4C29">Profile setting</Text>
                     <PicChange />
                     <UsernameChange />
                     <EmailChange />

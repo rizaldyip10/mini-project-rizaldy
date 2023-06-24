@@ -1,4 +1,4 @@
-import { Avatar, Box, Button, Divider, Flex, FormControl, FormLabel, HStack, Heading, Image, Input, Menu, MenuButton, MenuItem, MenuList, Select, Text, VStack } from "@chakra-ui/react"
+import { Avatar, Box, Button, Divider, Flex, FormControl, FormLabel, HStack, Heading, Input, Menu, MenuButton, MenuItem, MenuList, Select, Text } from "@chakra-ui/react"
 import { NavBar } from "../components/global/navbar"
 import { ToTop } from "../components/global/toTop"
 import { Footer } from "../components/global/footer"
@@ -32,9 +32,6 @@ export const SearchPage = () => {
 
     const handleEarliest = () => {
         setSorting("ASC")
-    }
-    const goToPage = (pageNum) => {
-        handleSearch(pageNum)
     }
 
     const goToPrevPage = () => {
@@ -91,7 +88,7 @@ export const SearchPage = () => {
                     <FormControl>
                         <FormLabel color="#FF4C29">Search</FormLabel>
                         <Input color="#FF4C29" type="text" value={searchTerm} onChange={handleInputChange} borderColor="white" focusBorderColor="#FF4C29" placeholder="Search..." _placeholder={{color: "#FF4C29"}} />
-                        <Select color="#FF4C29" value={selectedCategory} onChange={handleCategoryChange} mt="10px" borderColor="white" focusBorderColor="#FF4C29" placeholder="Category">
+                        <Select color="#FF4C29" value={selectedCategory} onChange={handleCategoryChange} mt="10px" borderColor="white" focusBorderColor="#FF4C29" bgColor="#334756" placeholder="Category">
                             <option value="">All</option>
                             {categories?.map((category) => (
                                 <option key={category.id} value={category.id}>
@@ -111,7 +108,7 @@ export const SearchPage = () => {
                             <MenuButton >
                                 <Button bgColor="#FF4C29" color="#082032" h="20px"  >Sort</Button>
                             </MenuButton>
-                            <MenuList>
+                            <MenuList bgColor="#334756">
                                 <MenuItem color="#FF4C29" cursor="pointer" onClick={handleEarliest}>Earliest</MenuItem>
                                 <Divider color="gray.900" />
                                 <MenuItem color="#FF4C29" cursor="pointer" onClick={handleLatest}>Latest</MenuItem>

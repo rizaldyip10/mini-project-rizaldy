@@ -45,7 +45,7 @@ export const EmailChange = () => {
             {() => {
                 return (
                     <Box as={Form} mt="20px">
-                        <Text>Email</Text>
+                        <Text color="#FF4C29">Email</Text>
                         <Flex alignItems="center">
                             <InputGroup>
                                 <InputField name="currentEmail" type="text" defaultValue={data} h="35px" w="300px" color="#FF4C29" placeholder="Current email" _placeholder={{color: "#FF4C29"}} _hover={{borderColor: "white"}} focusBorderColor="#FF4C29"/>

@@ -38,7 +38,7 @@ export const NavBar = () => {
                                     <MenuButton as={Button} rounded="full" variant='link' cursor='pointer' minW={0}>
                                         <Avatar size="sm" src={`https://minpro-blog.purwadhikabootcamp.com/${data.imgProfile}`}/>
                                     </MenuButton>
-                                    <MenuList>
+                                    <MenuList bgColor="#334756">
                                         <MenuItem as={Link} to="/profile">Profile</MenuItem>
                                         <MenuDivider />
                                         <MenuItem onClick={onLogOut}>Log Out</MenuItem>

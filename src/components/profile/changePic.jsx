@@ -50,7 +50,7 @@ export const PicChange = () => {
                         <Field name="file">
                             {({field}) => (
                                 <FormControl>
-                                    <FormLabel htmlFor="file">Profile Picture</FormLabel>
+                                    <FormLabel htmlFor="file" color="#FF4C29">Profile Picture</FormLabel>
                                     <Input {...field}
                                     onChange={(e) => {
                                         field.onChange(e)

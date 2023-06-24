@@ -104,7 +104,7 @@ export const BlogData = () => {
                                     <FormLabel fontSize="14px">
                                         Category
                                     </FormLabel>
-                                    <Field as={Select} name="CategoryId" placeholder="Select category" borderColor="white" focusBorderColor="#FF4C29">
+                                    <Field as={Select} name="CategoryId" placeholder="Select category" borderColor="white" focusBorderColor="#FF4C29" bgColor="#334756" >
                                         {cat?.map((value, index) => {
                                             return (
                                                 <option key={index} value={value.id}>

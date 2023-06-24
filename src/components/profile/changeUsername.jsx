@@ -41,7 +41,7 @@ export const UsernameChange = () => {
             {() => {
                 return (
                     <Box as={Form} mt="20px">
-                        <Text>Username</Text>
+                        <Text color="#FF4C29">Username</Text>
                         <Flex alignItems="center">
                             <InputGroup>
                                 <InputField name="currentUsername" type="text" defaultValue={data} h="35px" w="300px" color="#FF4C29" placeholder="Current username" _placeholder={{color: "#FF4C29"}} _hover={{borderColor: "white"}} focusBorderColor="#FF4C29"/>

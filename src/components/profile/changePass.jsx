@@ -49,7 +49,7 @@ export const PasswordChange = () => {
             {() => {
                 return (
                     <Box as={Form} mt="20px">
-                        <Text>Password</Text>
+                        <Text color="#FF4C29">Password</Text>
                         <Flex alignItems="center">
                             <VStack>
                                 <InputGroup>
