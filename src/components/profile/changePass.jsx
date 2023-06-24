@@ -1,4 +1,4 @@
-import { Box, Button, Flex, HStack, InputGroup, InputLeftElement, InputRightElement, Text, VStack } from "@chakra-ui/react"
+import { Box, Button, Flex, HStack, InputGroup, InputLeftElement, InputRightElement, Text, VStack, useToast } from "@chakra-ui/react"
 import InputField from "../form/inputField"
 import { useState } from "react"
 import { Form, Formik } from "formik"
@@ -13,6 +13,7 @@ export const PasswordChange = () => {
     const navigate = useNavigate()
     const [show, setShow] = useState(false)
     const handleClick = () => setShow(!show)
+    const toast = useToast()
 
     const PasswordSchema = Yup.object().shape({
         currentPassword: Yup.string()
@@ -32,12 +33,30 @@ export const PasswordChange = () => {
 
     const onPass = async (data) => {
         try {
-            
+            data.FE_URL = window.location.origin
             const response = await Axios.patch("https://minpro-blog.purwadhikabootcamp.com/api/auth/changePass", data, {headers})
-            navigate('/profile')
+            localStorage.removeItem("token")
+            localStorage.removeItem("token")
+            toast({
+                title: "Success!",
+                description: "We've sent you verification email",
+                status: "success",
+                duration: 1500,
+                isClosable: true
+            })
+            setTimeout(() => {
+                navigate("/loginbyname")
+              }, 2000)
             console.log(response);
         } catch (err) {
             console.log(err);
+            toast({
+                title: "Failed!",
+                description: err.response.data.err,
+                status: "error",
+                duration: 3500,
+                isClosable: true
+            })
         }
     }
     return (

@@ -1,6 +1,5 @@
-import { Box, Button, Flex, InputGroup, Text } from "@chakra-ui/react"
+import { Box, Button, Flex, InputGroup, Text, useToast } from "@chakra-ui/react"
 import InputField from "../form/inputField"
-import { useState } from "react"
 import { useSelector } from "react-redux"
 import { Form, Formik } from "formik"
 import Axios from "axios"
@@ -12,6 +11,7 @@ export const EmailChange = () => {
     const data = useSelector((state) => state.user.value.email)
     const token = localStorage.getItem("token")
     const navigate = useNavigate()
+    const toast = useToast()
     console.log(data);
 
     const EmailSchema = Yup.object().shape({
@@ -29,12 +29,29 @@ export const EmailChange = () => {
 
     const onEmail = async (data) => {
         try {
+            data.FE_URL = window.location.origin
             const response = await Axios.patch("https://minpro-blog.purwadhikabootcamp.com/api/auth/changeEmail", data, {headers})
             console.log(response);
             localStorage.removeItem("token")
-            navigate("/login")
+            toast({
+                title: "Success!",
+                description: "We've sent you verification email",
+                status: "success",
+                duration: 1500,
+                isClosable: true
+            })
+            setTimeout(() => {
+                navigate("/loginbyname")
+              }, 2000)
         } catch (err) {
             console.log(err);
+            toast({
+                title: "Failed!",
+                description: err.response.data.err,
+                status: "error",
+                duration: 3500,
+                isClosable: true
+            })
         }
     }
     return (

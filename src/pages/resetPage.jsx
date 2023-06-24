@@ -43,7 +43,7 @@ export const ResetPage = () => {
                 isClosable: true
               })
               setTimeout(() => {
-                navigate("/login")
+                navigate("/loginbyname")
               }, 2000)
             console.log(response);
         } catch (err) {

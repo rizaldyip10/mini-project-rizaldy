@@ -1,11 +1,10 @@
-import { Box, Button, Flex, FormControl, FormErrorMessage, FormLabel, Input, Select, SelectField, Text, Textarea } from "@chakra-ui/react"
+import { Box, Button, Flex, FormControl, FormErrorMessage, FormLabel, Input, Select, SelectField, Text, Textarea, useToast } from "@chakra-ui/react"
 import { Field, Form, Formik, useField } from "formik"
 import InputField from "../form/inputField"
 import Axios from "axios"
 import { useEffect, useState } from "react"
 import { AreaField } from "../form/areaField"
 import * as Yup from "yup"
-import InputField2 from "../form/inputField2"
 import { useNavigate } from "react-router-dom"
 
 
@@ -14,6 +13,14 @@ export const BlogData = () => {
     const [file, setFile] = useState(null)
     const token = localStorage.getItem("token")
     const navigate = useNavigate()
+    const toast = useToast()
+
+    const SUPPORTED_FORMATS = [
+        "image/jpg",
+        "image/jpeg",
+        "image/gif",
+        "image/png"
+      ];
 
     const BlogSchema = Yup.object().shape({
         title: Yup.string()
@@ -24,13 +31,19 @@ export const BlogData = () => {
             .required("Please enter your country"),
         CategoryId: Yup.string()
             .required("Please select your category"),
+        url: Yup.string()
+            .optional(),
         content: Yup.string()
-            .required("Please enter your content"),
+            .required("Please enter your content")
+            .test("len", "Max 300 letters",
+            value => value.length <= 300),
         file: Yup.mixed()
             .required("Image is required")
-            .test("fileSize", "File size too large", (value) => {
-                
-            })
+            .test("fileSize", "File size is too large", 
+            value => value && value.size <= 1024000)
+            .test("fileType", "Unsupported file type",
+            value => value && SUPPORTED_FORMATS.includes(value.type))
+            
         
     })
 
@@ -56,7 +69,16 @@ export const BlogData = () => {
                 },
                 "Content-Type": "multipart/form-data"
             })
-            navigate('/')
+            toast({
+                title: "Blog posted",
+                description: "Blog successfuly posted!",
+                status: "success",
+                duration: 1500,
+                isClosable: true
+            })
+            setTimeout(() => {
+                navigate('/')
+            }, 2000)
             console.log(response);
         } catch (err) {
             console.log(err);

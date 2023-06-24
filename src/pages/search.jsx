@@ -15,8 +15,8 @@ export const SearchPage = () => {
     const [categories, setCategories] = useState();
     const [searchResults, setSearchResults] = useState([]);
     const [sorting, setSorting] = useState("DESC")
-    const [page, setPage] = useState(1)
-    const [totalPage, setTotalPage] = useState(1)
+    const [page, setPage] = useState(null)
+    const [totalPage, setTotalPage] = useState(null)
     const navigate = useNavigate()
   
     useEffect(() => {
@@ -109,9 +109,9 @@ export const SearchPage = () => {
                                 <Button bgColor="#FF4C29" color="#082032" h="20px"  >Sort</Button>
                             </MenuButton>
                             <MenuList bgColor="#334756">
-                                <MenuItem bgColor="#334756" color="#FF4C29" cursor="pointer" onClick={handleEarliest}>Earliest</MenuItem>
+                                <MenuItem _hover={{bgColor: "#082032"}} bgColor="#334756" color="#FF4C29" cursor="pointer" onClick={handleEarliest}>Earliest</MenuItem>
                                 <Divider color="gray.900" />
-                                <MenuItem bgColor="#334756" color="#FF4C29" cursor="pointer" onClick={handleLatest}>Latest</MenuItem>
+                                <MenuItem _hover={{bgColor: "#082032"}} bgColor="#334756" color="#FF4C29" cursor="pointer" onClick={handleLatest}>Latest</MenuItem>
                             </MenuList>
                         </Menu>
                     </Flex>
@@ -134,11 +134,13 @@ export const SearchPage = () => {
                             <Divider mt="10px" color="gray.900" />
                         </Box>
                     ))}
-                     <Flex mt="20px" justifyContent="center">
-                        <Button bgColor="#FF4C29" color="#082032" onClick={goToPrevPage} disabled={page === 1}><ArrowBackIcon /></Button>
-                        <Button mx="5px" disabled bgColor="#FF4C29" color="#082032">{page}</Button>
-                        <Button onClick={goToNextPage} disabled={page === totalPage} bgColor="#FF4C29" color="#082032" ><ArrowForwardIcon /></Button>
-                    </Flex>
+                     {page === null ? null : (
+                        <Flex mt="20px" justifyContent="center">
+                            <Button bgColor="#FF4C29" color="#082032" onClick={goToPrevPage} disabled={page === 1}><ArrowBackIcon /></Button>
+                            <Button mx="5px" disabled bgColor="#FF4C29" color="#082032">{page}</Button>
+                            <Button onClick={goToNextPage} disabled={page === totalPage} bgColor="#FF4C29" color="#082032" ><ArrowForwardIcon /></Button>
+                        </Flex>
+                     )}
                 </Box>
                 <Box className="search-section" h="630px" w="250px">
                     <CardSide />

@@ -9,16 +9,13 @@ export const VerifyPage = () => {
     const navigate = useNavigate()
     const toast = useToast()
 
-    const url = "http://localhost:3000/"
-
     const getVerified = async () => {
         try {
-            const feUrl = `http://localhost:3000/verification/${token}`;
-            window.location.href = feUrl;
-            const response = await Axios.patch('https://minpro-blog.purwadhikabootcamp.com/api/auth/verify', {
+            const response = await Axios.patch('https://minpro-blog.purwadhikabootcamp.com/api/auth/verify', {}, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 }})
+                console.log(token);
                 toast({
                     title: "Success",
                     description: "Verification success!",
@@ -35,7 +32,7 @@ export const VerifyPage = () => {
             console.log(err);
             toast({
                 title: "Error",
-                description: err.response.data,
+                description: "Verification failed",
                 status: 'error',
                 duration: 3500,
                 isClosable: true

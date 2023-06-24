@@ -1,4 +1,4 @@
-import { Box, Button, Flex, InputGroup, Text } from "@chakra-ui/react"
+import { Box, Button, Flex, InputGroup, Text, useToast } from "@chakra-ui/react"
 import InputField from "../form/inputField"
 import { useState } from "react"
 import { useSelector } from "react-redux"
@@ -12,6 +12,7 @@ export const UsernameChange = () => {
     const data = useSelector((state) => state.user.value.username)
     const token = localStorage.getItem("token")
     const navigate = useNavigate()
+    const toast = useToast()
     console.log(data);
 
     const UsernameSchema = Yup.object().shape({
@@ -27,10 +28,27 @@ export const UsernameChange = () => {
 
     const onUser = async (data) => {
         try {
+            data.FE_URL = window.location.origin
             await Axios.patch("https://minpro-blog.purwadhikabootcamp.com/api/auth/changeUsername", data, {headers})
-            navigate("/profile")
+            localStorage.removeItem("token")
+            toast({
+                title: "Success!",
+                description: "We've sent you verification email",
+                status: "success",
+                duration: 1500,
+                isClosable: true
+            })
+            setTimeout(() => {
+                navigate("/loginbyname")
+              }, 2000)
         } catch (err) {
-            alert(err.response.data)
+            toast({
+                title: "Failed!",
+                description: err.response.data.err,
+                status: "error",
+                duration: 3500,
+                isClosable: true
+            })
         }
     }
     return (

@@ -23,6 +23,7 @@ export const ResetPass = () => {
 
     const onReset = async (data) => {
         try {
+            data.FE_URL = window.location.origin 
             const response = await Axios.put('https://minpro-blog.purwadhikabootcamp.com/api/auth/forgotPass', data)
             setSuccess(true)
             console.log(response);

@@ -1,16 +1,18 @@
-import { Box, Button, Flex, FormControl, FormErrorMessage, FormLabel, Input, InputGroup, Text } from "@chakra-ui/react"
+import { Box, Button, Flex, FormControl, FormErrorMessage, FormLabel, Input, InputGroup, Text, useToast } from "@chakra-ui/react"
 import { Field, Form, Formik } from "formik"
 import Axios from "axios"
 import * as Yup from "yup"
 import InputField from "../form/inputField"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { BsWindowSidebar } from "react-icons/bs"
 
 
 export const PicChange = () => {
     const [file, setFile] = useState(null)
     const navigate = useNavigate()
     const token = localStorage.getItem("token")
+    const toast = useToast()
 
     const initialState = {
         file: ""
@@ -24,6 +26,7 @@ export const PicChange = () => {
 
     const onImage = async (data) => {
         try {
+            data.FE_URL = window.location.origin
             const image = new FormData()
             image.append("file", file)
             const response = await Axios.post("https://minpro-blog.purwadhikabootcamp.com/api/profile/single-uploaded", image, {
@@ -31,10 +34,26 @@ export const PicChange = () => {
                     Authorization: `Bearer ${token}`
                 },
             })
-            navigate('/profile')
+            toast({
+                title: "Success!",
+                description: "Profile picture successfuly changed!",
+                status: "success",
+                duration: 1500,
+                isClosable: true
+            })
+            setTimeout(() => {
+                window.location.reload()
+              }, 2000)
             console.log(response);
         } catch (err) {
             console.log(err);
+            toast({
+                title: "Failed!",
+                description: err.response.data.err,
+                status: "error",
+                duration: 3500,
+                isClosable: true
+            })
         }
     }
     return (

@@ -1,10 +1,10 @@
 import { EmailIcon, LockIcon, PhoneIcon, ViewIcon, ViewOffIcon } from "@chakra-ui/icons"
-import { Alert, AlertDescription, AlertIcon, Box, Button, Flex, HStack, Heading, InputGroup, InputLeftElement, InputRightElement, Stack, Text, VStack, useToast } from "@chakra-ui/react"
+import { Alert, Box, Button, Flex, HStack, Heading, InputGroup, InputLeftElement, InputRightElement, Stack, Text, VStack, useToast } from "@chakra-ui/react"
 import { faUser } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Form, Formik } from "formik"
 import * as Yup from "yup"
-import { useRef, useState } from "react"
+import { useState } from "react"
 import { Link, useNavigate, useParams } from "react-router-dom"
 import InputField from "../components/form/inputField"
 import  Axios  from "axios"
@@ -40,7 +40,7 @@ export const SignUp = () => {
 
     const handleSubmit = async (data) => {
         try {
-            data.FE_URL = "http://localhost:3000"
+            data.FE_URL = window.location.origin
             const response = await Axios.post('https://minpro-blog.purwadhikabootcamp.com/api/auth/', data,
             {
                 headers: {
