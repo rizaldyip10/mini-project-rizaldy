@@ -88,10 +88,10 @@ export const SearchPage = () => {
                     <FormControl>
                         <FormLabel color="#FF4C29">Search</FormLabel>
                         <Input color="#FF4C29" type="text" value={searchTerm} onChange={handleInputChange} borderColor="white" focusBorderColor="#FF4C29" placeholder="Search..." _placeholder={{color: "#FF4C29"}} />
-                        <Select color="#FF4C29" value={selectedCategory} onChange={handleCategoryChange} mt="10px" borderColor="white" focusBorderColor="#FF4C29" bgColor="#334756" placeholder="Category">
-                            <option value="">All</option>
+                        <Select color="#FF4C29" value={selectedCategory} onChange={handleCategoryChange} mt="10px" borderColor="white" focusBorderColor="#FF4C29" placeholder="Category">
+                            <option bgColor="#334756" value="">All</option>
                             {categories?.map((category) => (
-                                <option key={category.id} value={category.id}>
+                                <option bgColor="#334756" key={category.id} value={category.id}>
                                     {category.name}
                                 </option>
                             ))}
@@ -109,9 +109,9 @@ export const SearchPage = () => {
                                 <Button bgColor="#FF4C29" color="#082032" h="20px"  >Sort</Button>
                             </MenuButton>
                             <MenuList bgColor="#334756">
-                                <MenuItem color="#FF4C29" cursor="pointer" onClick={handleEarliest}>Earliest</MenuItem>
+                                <MenuItem bgColor="#334756" color="#FF4C29" cursor="pointer" onClick={handleEarliest}>Earliest</MenuItem>
                                 <Divider color="gray.900" />
-                                <MenuItem color="#FF4C29" cursor="pointer" onClick={handleLatest}>Latest</MenuItem>
+                                <MenuItem bgColor="#334756" color="#FF4C29" cursor="pointer" onClick={handleLatest}>Latest</MenuItem>
                             </MenuList>
                         </Menu>
                     </Flex>

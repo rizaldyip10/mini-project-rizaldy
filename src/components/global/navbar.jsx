@@ -39,9 +39,9 @@ export const NavBar = () => {
                                         <Avatar size="sm" src={`https://minpro-blog.purwadhikabootcamp.com/${data.imgProfile}`}/>
                                     </MenuButton>
                                     <MenuList bgColor="#334756">
-                                        <MenuItem as={Link} to="/profile">Profile</MenuItem>
+                                        <MenuItem bgColor="#334756" as={Link} to="/profile">Profile</MenuItem>
                                         <MenuDivider />
-                                        <MenuItem onClick={onLogOut}>Log Out</MenuItem>
+                                        <MenuItem  bgColor="#334756" onClick={onLogOut}>Log Out</MenuItem>
                                     </MenuList>
                                 </Menu>
                             </Flex>
@@ -52,8 +52,8 @@ export const NavBar = () => {
                                 <MenuButton mb="5px">
                                     <AddIcon />
                                 </MenuButton>
-                                <MenuList>
-                                    <MenuItem as={Link} to="/create-blog">Create Blog</MenuItem>
+                                <MenuList bgColor="#334756">
+                                    <MenuItem bgColor="#334756" as={Link} to="/create-blog">Create Blog</MenuItem>
                                 </MenuList>
                             </Menu>
                         </Flex>
