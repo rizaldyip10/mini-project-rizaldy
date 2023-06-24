@@ -35,7 +35,8 @@ export const PicChange = () => {
                 description: "Profile picture successfuly changed!",
                 status: "success",
                 duration: 1500,
-                isClosable: true
+                isClosable: true,
+                position: "top"
             })
             setTimeout(() => {
                 window.location.reload()
@@ -48,7 +49,8 @@ export const PicChange = () => {
                 description: err.response.data.err,
                 status: "error",
                 duration: 3500,
-                isClosable: true
+                isClosable: true,
+                position: "top"
             })
         }
     }

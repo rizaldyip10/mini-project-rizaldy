@@ -1,4 +1,4 @@
-import { Box, Flex } from "@chakra-ui/react"
+import { Box, Center, Flex } from "@chakra-ui/react"
 import { NavBar } from "../components/global/navbar"
 import { Footer } from "../components/global/footer"
 import { Carousel } from "../components/home/carousel"
@@ -19,8 +19,8 @@ export const Home = () => {
                     <Carousel />
                 </Box>
             </Flex>
-            <Box display="flex" className="blog-content">
-                <Box color="#2C394B" className="new-blog" w="67%" h="630px" bgColor="white" mt="60px" ml="64px" borderRadius="20px" boxShadow="2px 2px 5px black">
+            <Box display="flex" className="blog-content" justifyContent={"center"}>
+                <Box color="#2C394B" className="new-blog" maxW="67%" h="630px" bgColor="white" mt="60px" borderRadius="20px" boxShadow="2px 2px 5px black">
                     <AllBlogCard />
                 </Box>
                 <Box color="#2C394B" className="trending-blog" w="20%" h="630px" mt="60px" ml="37px" borderRadius="20px">

@@ -21,7 +21,8 @@ export const VerifyPage = () => {
                     description: "Verification success!",
                     status: 'success',
                     duration: 1500,
-                    isClosable: true
+                    isClosable: true,
+                    position: "top"
                   })
                   setTimeout(() => {
                     navigate("/loginbyname")
@@ -35,7 +36,8 @@ export const VerifyPage = () => {
                 description: "Verification failed",
                 status: 'error',
                 duration: 3500,
-                isClosable: true
+                isClosable: true,
+                position: "top"
               })
         }
     }

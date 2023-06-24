@@ -63,7 +63,8 @@ export const BlogData = () => {
                 description: "Blog successfuly posted!",
                 status: "success",
                 duration: 1500,
-                isClosable: true
+                isClosable: true,
+                position: "top"
             })
             setTimeout(() => {
                 navigate('/')

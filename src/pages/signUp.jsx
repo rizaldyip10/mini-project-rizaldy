@@ -53,7 +53,8 @@ export const SignUp = () => {
                 description: "Success registering your account!",
                 status: 'success',
                 duration: 1500,
-                isClosable: true
+                isClosable: true,
+                position: "top"
               })
               setTimeout(() => {
                 navigate("/")
@@ -68,7 +69,8 @@ export const SignUp = () => {
                 description: err.response.data,
                 status: 'error',
                 duration: 3500,
-                isClosable: true
+                isClosable: true,
+                position: "top"
               })
         }
     }

@@ -17,6 +17,7 @@ export const BlogPage = () => {
     const [blog, setBlog] = useState()
     const [user, setUser] = useState()
     const dispatch = useDispatch()
+    const token = localStorage.getItem("token")
 
     const getBlog = async () => {
         try {
@@ -59,7 +60,7 @@ export const BlogPage = () => {
                                 })}
                                 </Text>
                                 <Divider orientation="vertical" />
-                                <LikeButton blogId={blog?.id} />
+                                {token ? <LikeButton blogId={blog?.id} /> : null}
                                 <Divider orientation="vertical" />
                                 {user === username ? <DeleteButton color="#FF4C29" /> : null}
                             </HStack>

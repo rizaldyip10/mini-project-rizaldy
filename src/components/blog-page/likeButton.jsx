@@ -1,4 +1,4 @@
-import { Box, Button } from "@chakra-ui/react"
+import { Box, Button, useToast } from "@chakra-ui/react"
 import { faHeart } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Axios from "axios"
@@ -11,6 +11,7 @@ export const LikeButton = ({blogId}) => {
     const [isLiked, setIsLiked] = useState(false)
     const token = localStorage.getItem("token")
     const { id } = useParams()
+    const toast = useToast()
 
     const onClick = async () => {
         try {
@@ -24,6 +25,13 @@ export const LikeButton = ({blogId}) => {
                 }
             })
             setIsLiked(true)
+            toast({
+                title: "Liked",
+                description: "You've liked this page",
+                status: "success",
+                duration: 2500,
+                position: "top"
+            })
             console.log(response);
         } catch (err) {
             console.log(err);

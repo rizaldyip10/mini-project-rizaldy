@@ -32,7 +32,8 @@ export const ResetPass = () => {
                 description: "Verification email has been sent!",
                 status: 'success',
                 duration: 1500,
-                isClosable: true
+                isClosable: true,
+                position: "top"
               })
               setTimeout(() => {
                 navigate("/")
@@ -44,7 +45,8 @@ export const ResetPass = () => {
                 description: err.response.data,
                 status: 'error',
                 duration: 3500,
-                isClosable: true
+                isClosable: true,
+                position: "top"
               })
         }
     }

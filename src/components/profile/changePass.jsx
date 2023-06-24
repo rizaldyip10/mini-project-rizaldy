@@ -42,7 +42,8 @@ export const PasswordChange = () => {
                 description: "We've sent you verification email",
                 status: "success",
                 duration: 1500,
-                isClosable: true
+                isClosable: true,
+                position: "top"
             })
             setTimeout(() => {
                 navigate("/loginbyname")
@@ -55,7 +56,8 @@ export const PasswordChange = () => {
                 description: err.response.data.err,
                 status: "error",
                 duration: 3500,
-                isClosable: true
+                isClosable: true,
+                position: "top"
             })
         }
     }

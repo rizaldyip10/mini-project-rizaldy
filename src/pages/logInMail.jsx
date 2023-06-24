@@ -62,7 +62,8 @@ import { setValue } from "../redux/userSlice";
           description: "Success loging in to your account!",
           status: 'success',
           duration: 1500,
-          isClosable: true
+          isClosable: true,
+          position: "top"
         })
         setTimeout(() => {
           navigate("/")
@@ -75,7 +76,8 @@ import { setValue } from "../redux/userSlice";
           description: err.response.data,
           status: 'error',
           duration: 3500,
-          isClosable: true
+          isClosable: true,
+          position: "top"
         })
       }
     };

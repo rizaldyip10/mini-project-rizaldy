@@ -40,7 +40,8 @@ export const ResetPage = () => {
                 description: "Successfuly reset password!",
                 status: 'success',
                 duration: 1500,
-                isClosable: true
+                isClosable: true,
+                position: "top"
               })
               setTimeout(() => {
                 navigate("/loginbyname")
@@ -54,7 +55,8 @@ export const ResetPage = () => {
                 description: err.response.data,
                 status: 'error',
                 duration: 3500,
-                isClosable: true
+                isClosable: true,
+                position: "top"
               })
         }
     }
