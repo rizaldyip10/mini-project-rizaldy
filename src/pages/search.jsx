@@ -91,7 +91,7 @@ export const SearchPage = () => {
                         <Select color="#FF4C29" value={selectedCategory} onChange={handleCategoryChange} mt="10px" borderColor="white" focusBorderColor="#FF4C29" placeholder="Category">
                             <option bgColor="#334756" value="">All</option>
                             {categories?.map((category) => (
-                                <option bgColor="#334756" key={category.id} value={category.id}>
+                                <option style={{backgroundColor:"#334756"}}  key={category.id} value={category.id}>
                                     {category.name}
                                 </option>
                             ))}

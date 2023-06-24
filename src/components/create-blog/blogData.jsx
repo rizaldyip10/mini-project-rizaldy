@@ -129,7 +129,7 @@ export const BlogData = () => {
                                     <Field as={Select} name="CategoryId" placeholder="Select category" borderColor="white" focusBorderColor="#FF4C29" >
                                         {cat?.map((value, index) => {
                                             return (
-                                                <option bgColor="#334756" key={index} value={value.id}>
+                                                <option style={{backgroundColor:"#334756"}} key={index} value={value.id}>
                                                     {value.name}
                                                 </option>
                                             )
