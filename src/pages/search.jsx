@@ -88,8 +88,8 @@ export const SearchPage = () => {
                     <FormControl>
                         <FormLabel color="#FF4C29">Search</FormLabel>
                         <Input color="#FF4C29" type="text" value={searchTerm} onChange={handleInputChange} borderColor="white" focusBorderColor="#FF4C29" placeholder="Search..." _placeholder={{color: "#FF4C29"}} />
-                        <Select color="#FF4C29" value={selectedCategory} onChange={handleCategoryChange} mt="10px" borderColor="white" focusBorderColor="#FF4C29" placeholder="Category">
-                            <option bgColor="#334756" value="">All</option>
+                        <Select color="#FF4C29" value={selectedCategory} onChange={handleCategoryChange} mt="10px" borderColor="white" focusBorderColor="#FF4C29" placeholder="Category" _placeholder={{bgColor: "#334756"}}>
+                            <option style={{backgroundColor:"#334756"}} value="">All</option>
                             {categories?.map((category) => (
                                 <option style={{backgroundColor:"#334756"}}  key={category.id} value={category.id}>
                                     {category.name}

@@ -15,13 +15,6 @@ export const BlogData = () => {
     const navigate = useNavigate()
     const toast = useToast()
 
-    const SUPPORTED_FORMATS = [
-        "image/jpg",
-        "image/jpeg",
-        "image/gif",
-        "image/png"
-      ];
-
     const BlogSchema = Yup.object().shape({
         title: Yup.string()
             .required("Please fill your blog title"),
@@ -39,10 +32,6 @@ export const BlogData = () => {
             value => value.length <= 300),
         file: Yup.mixed()
             .required("Image is required")
-            .test("fileSize", "File size is too large", 
-            value => value && value.size <= 1024000)
-            .test("fileType", "Unsupported file type",
-            value => value && SUPPORTED_FORMATS.includes(value.type))
             
         
     })
