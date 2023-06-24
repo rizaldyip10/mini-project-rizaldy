@@ -110,6 +110,10 @@ export const BlogData = () => {
                                     </Field>
                                 </FormControl>
                             </Box>
+                            <Box className="url" mt="20px">
+                                <Text>URL</Text>
+                                <InputField name="url"  htmlFor="url" className="url" type="text" placeholder="Enter your url" color="#FF4C29" _placeholder={{color: "#FF4C29"}} borderColor="white" focusBorderColor="#FF4C29"/>
+                            </Box>
                             <Box className="blog-pic" mt="20px">
                                 <Field name="file">
                                     {({field}) => (

@@ -1,5 +1,4 @@
-import { Flex, VStack, Heading, Text, Spinner, HStack, Button } from "@chakra-ui/react"
-import { useEffect } from "react"
+import { Flex, VStack, Heading, Text,  Button } from "@chakra-ui/react"
 import { useNavigate, useParams } from "react-router-dom"
 import Axios from 'axios'
 import { Formik } from "formik"
@@ -8,12 +7,17 @@ import { Formik } from "formik"
 export const VerifyPage = () => {
     const { token } = useParams() 
     const navigate = useNavigate()
-    const header = {
-        Authorization: `Bearer ${token}`
-    }
+
+    const url = "http://localhost:3000/"
+
     const getVerified = async () => {
         try {
-            const response = await Axios.patch('https://minpro-blog.purwadhikabootcamp.com/api/auth/verify', {}, {headers: header})
+            const feUrl = `http://localhost:3000/verification/${token}`;
+            window.location.href = feUrl;
+            const response = await Axios.patch('https://minpro-blog.purwadhikabootcamp.com/api/auth/verify', {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                }})
             navigate('/loginbyname')
             console.log(response);
         }

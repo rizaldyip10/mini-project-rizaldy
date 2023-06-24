@@ -24,7 +24,6 @@ export const BisnisCard = () => {
                     <>
                     {item.CategoryId === 1 ? (
                         <Box key={index} bgColor="black" w="100%" h="150px">
-                        <Box />
                         <Flex p="10px 20px">
                             <Avatar size="lg" mr="20px" src={`https://minpro-blog.purwadhikabootcamp.com/${item.User.imgProfile}`}/>
                             <Box color="white">

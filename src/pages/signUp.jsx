@@ -57,7 +57,7 @@ export const SignUp = () => {
         }
     }
     return (
-    <Formik initialValues={{username: '', email: '', phone: '', password: '', confirmPassword: '', FE_URL: ''}}
+    <Formik initialValues={{username: '', email: '', phone: '', password: '', confirmPassword: ''}}
     validationSchema={RegisterSchema}
     onSubmit={(values, action) => {
         handleSubmit(values)
@@ -75,7 +75,7 @@ export const SignUp = () => {
                 </HStack>
                 <VStack>
                     <Stack textAlign="center">
-                        <Heading>Create your account!</Heading>
+                        <Heading color="white">Create your account!</Heading>
                         <Text as={Link} to="/loginbyname" color="#FF4C29">Already have an account?</Text>
                     </Stack>
                     <Box rounded='lg' bg='#082032' boxShadow='lg' p={8} mt="5px">

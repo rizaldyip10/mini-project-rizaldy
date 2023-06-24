@@ -43,7 +43,7 @@ export const ResetPass = () => {
                     <Flex as={Form} minH="100vh" align="center" justify="center" bgColor="#2C394B">
                         <VStack>
                             <Stack textAlign="center">
-                                <Heading>Reset your password</Heading>
+                                <Heading color="white">Reset your password</Heading>
                                 <Text color="#FF4C29">We'll send you an email to chnage your password</Text>
                             </Stack>
                             <Flex justifyContent="space-between" color="#FF4C29" mt="20px">
@@ -57,7 +57,7 @@ export const ResetPass = () => {
                                                 <EmailIcon color="#FF4C29" mb="3px" />
                                             </Box>
                                         </InputLeftElement>
-                                        <InputField name="email" htmlFor="email" className="email" type="text" pl="35px" placeholder="Enter your email" _placeholder={{color: "#FF4C29"}}  h="30px" w="350px" fontSize="16px" borderColor="#FF4C29" _hover={{borderColor: "white"}} focusBorderColor="#FF4C29"/>
+                                        <InputField name="email" htmlFor="email" className="email" type="text" pl="35px" placeholder="Enter your email" _placeholder={{color: "#FF4C29"}}  h="30px" w="350px" fontSize="16px" borderColor="#FF4C29" _hover={{borderColor: "white"}} focusBorderColor="#FF4C29" color="white"/>
                                     </InputGroup>
                                     
                                 </Stack>

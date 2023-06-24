@@ -1,4 +1,6 @@
 import { Box, Button } from "@chakra-ui/react"
+import { faTrash } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Axios from "axios"
 import { useSelector } from "react-redux"
 import { useNavigate, useParams } from "react-router-dom"
@@ -19,7 +21,7 @@ export const DeleteButton = () => {
 
     return (
         <Box>
-            <Button onClick={onDelete}>Delete</Button>
+            <Button w="0px" onClick={onDelete} variant="unstyled"><FontAwesomeIcon icon={faTrash} /></Button>
         </Box>
     )
 }

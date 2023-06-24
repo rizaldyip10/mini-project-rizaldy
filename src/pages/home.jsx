@@ -20,7 +20,7 @@ export const Home = () => {
                 </Box>
             </Flex>
             <Box display="flex" className="blog-content">
-                <Box color="#2C394B" className="new-blog" w="67%" h="600px" bgColor="white" mt="60px" ml="64px" borderRadius="20px">
+                <Box color="#2C394B" className="new-blog" w="67%" h="630px" bgColor="white" mt="60px" ml="64px" borderRadius="20px" boxShadow="2px 2px 5px black">
                     <AllBlogCard />
                 </Box>
                 <Box color="#2C394B" className="trending-blog" w="20%" h="400px" mt="60px" ml="37px" borderRadius="20px">

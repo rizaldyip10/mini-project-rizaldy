@@ -85,7 +85,7 @@ import { setValue } from "../redux/userSlice";
               <Flex as={Form} minH="100vh" align="center" justify="center" bgColor="#2C394B">
               <VStack>
                   <Stack textAlign="center">
-                      <Heading>Welcome!</Heading>
+                      <Heading color="white">Welcome!</Heading>
                       <Text as={Link} to="/signup" color="#FF4C29">Don't have an account?</Text>
                   </Stack>
                   <Flex justifyContent="space-between" w="75px" color="#FF4C29" mt="20px">
@@ -107,13 +107,13 @@ import { setValue } from "../redux/userSlice";
                                       <PhoneIcon mb="3px" color="#FF4C29" />
                                   </Box>
                               </InputLeftElement>
-                              <InputField name="phone" htmlFor="phone" className="phone" type="text" pl="35px" placeholder="Phone number" _placeholder={{color: "#FF4C29"}}  h="30px" w="350px" fontSize="16px" borderColor="#FF4C29" _hover={{borderColor: "white"}} focusBorderColor="#FF4C29"/>
+                              <InputField name="phone" htmlFor="phone" className="phone" type="text" pl="35px" placeholder="Phone number" color="#FF4C29" _placeholder={{color: "#FF4C29"}}  h="30px" w="350px" fontSize="16px" borderColor="#FF4C29" _hover={{borderColor: "white"}} focusBorderColor="#FF4C29"/>
                           </InputGroup>
                       <InputGroup>
                           <InputLeftElement>
                               <LockIcon mt="5px" color="#FF4C29" />
                           </InputLeftElement>
-                          <InputField name="password" htmlFor="password" className="password" type={show ? 'text' : 'password'} pl="35px" placeholder="Enter your password" _placeholder={{color: "#FF4C29"}} h="30px" w="350px" fontSize="16px" borderColor="#FF4C29" _hover={{borderColor: "white"}} focusBorderColor="#FF4C29"/>
+                          <InputField name="password" htmlFor="password" className="password" type={show ? 'text' : 'password'} pl="35px" placeholder="Enter your password" color="#FF4C29" _placeholder={{color: "#FF4C29"}} h="30px" w="350px" fontSize="16px" borderColor="#FF4C29" _hover={{borderColor: "white"}} focusBorderColor="#FF4C29"/>
                           <InputRightElement>
                               <Box>
                                   <Button onClick={handleClick} variant="none" color="#FF4C29" mt="5px">{show ? <ViewOffIcon /> : <ViewIcon />}</Button>

@@ -28,7 +28,7 @@ export const NavBar = () => {
                 </Box>
                 <Box className="nav-item" color="#FF4C29" mt="3px" display="flex" lineHeight="37px" fontWeight="semibold">
                     <Text as={Link} to="/" mr="20px" transition="0.5s" _hover={{transform: "scale(1.1)", cursor: "pointer"}} _active={{color: "white", transition: "0s"}}>Home</Text>
-                    <Text as={Link} to="/category" mr="20px" transition="0.5s" _hover={{transform: "scale(1.1)", cursor: "pointer"}} _active={{color: "white", transition: "0s"}}>Category</Text>
+                    <Text as={Link} to="/search" mr="20px" transition="0.5s" _hover={{transform: "scale(1.1)", cursor: "pointer"}} _active={{color: "white", transition: "0s"}}>Category</Text>
                     <Text as={Link} to="/search" mr="20px" transition="0.5s" _hover={{transform: "scale(1.1)", cursor: "pointer"}} _active={{color: "white", transition: "0s"}}><SearchIcon /></Text>
                     {token ? (
                         <Flex>
@@ -49,7 +49,7 @@ export const NavBar = () => {
                              <Text>{data.username}</Text>
                             </Box>
                             <Menu>
-                                <MenuButton>
+                                <MenuButton mb="5px">
                                     <AddIcon />
                                 </MenuButton>
                                 <MenuList>

@@ -17,7 +17,7 @@ export const CardSide = () => {
     const getContent = async (content) => {
         try {
             const response = await Axios.get('https://minpro-blog.purwadhikabootcamp.com/api/blog?size=8', content)
-            const resFav = await Axios.get('https://minpro-blog.purwadhikabootcamp.com/api/blog/pagFav?size=8', content)
+            const resFav = await Axios.get('https://minpro-blog.purwadhikabootcamp.com/api/blog/pagFav?page=1&orderBy=total_fav&sort=DESC', content)
             setBlog(response.data.result)
             setFav(resFav.data.result)
         }

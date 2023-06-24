@@ -56,8 +56,8 @@ export const Carousel = () => {
               <Flex bgColor='rgba(0, 0, 0, .7)' h="100%" w="100%" className='blog-desc' position='absolute' 
               borderRadius='20px' cursor="pointer">
                 <Box margin="auto" p="0px 50px" color="white">
-                  <Heading >{item.title}</Heading>
-                  <Text mt="20px">by: {item.User.username}</Text>
+                  <Heading color="white">{item.title}</Heading>
+                  <Text mt="20px" color="white">by: {item.User.username}</Text>
                 </Box>
               </Flex>
             </SwiperSlide>
