@@ -1,5 +1,5 @@
 import { EmailIcon, LockIcon, PhoneIcon, ViewIcon, ViewOffIcon } from "@chakra-ui/icons"
-import { Alert, AlertDescription, AlertIcon, Box, Button, Flex,  Heading, InputGroup, InputLeftElement, InputRightElement, Stack, Text, VStack } from "@chakra-ui/react"
+import { Alert, AlertDescription, AlertIcon, Box, Button, Flex,  Heading, InputGroup, InputLeftElement, InputRightElement, Stack, Text, VStack, useToast } from "@chakra-ui/react"
 import { faUser } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Form, Formik } from "formik"
@@ -13,6 +13,8 @@ import  Axios  from "axios"
 export const ResetPass = () => {
     const { token } = useParams()
     const [success, setSuccess] = useState(false)
+    const navigate = useNavigate()
+    const toast = useToast()
     const ResetSchema = Yup.object().shape({
         email: Yup.string()
             .email('Email is invalid')
@@ -24,9 +26,25 @@ export const ResetPass = () => {
             const response = await Axios.put('https://minpro-blog.purwadhikabootcamp.com/api/auth/forgotPass', data)
             setSuccess(true)
             console.log(response);
+            toast({
+                title: "Success",
+                description: "Verification email has been sent!",
+                status: 'success',
+                duration: 1500,
+                isClosable: true
+              })
+              setTimeout(() => {
+                navigate("/")
+              }, 2000)
         } catch (err) {
             setSuccess(false)
-            alert(err.response.data);
+            toast({
+                title: "Error",
+                description: err.response.data,
+                status: 'error',
+                duration: 3500,
+                isClosable: true
+              })
         }
     }
     return (

@@ -1,4 +1,4 @@
-import { Avatar, Box, Flex, HStack, Heading, Image, Tab, TabList, TabPanel, TabPanels, Tabs, Text } from "@chakra-ui/react"
+import { Avatar, Box, Button, Flex, HStack, Heading, IconButton, Image, Popover, PopoverArrow, PopoverBody, PopoverContent, PopoverTrigger, Stack, Tab, TabList, TabPanel, TabPanels, Tabs, Text } from "@chakra-ui/react"
 import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import Axios from 'axios'
@@ -8,7 +8,7 @@ import { PhoneChange } from "./changePhone"
 import { PasswordChange } from "./changePass"
 import { PicChange } from "./changePic"
 import { useNavigate } from "react-router-dom"
-
+import { BsThreeDotsVertical } from "react-icons/bs";
 
 export const UserTabs = () => {
     const username = useSelector((state) => state.user.value.username)
@@ -78,7 +78,7 @@ export const UserTabs = () => {
                 <Flex justifyContent="flex-start" flexDirection="row" flexWrap="wrap">
                         {like?.map((item, index) => {
                             return (
-                                <Box w="300px" bgColor="#082032" p="10px" mt="20px" mb="20px" mr="20px" key={index} onClick={() => goToBlog(item.id)} cursor="pointer">
+                                <Box w="300px" bgColor="#082032" p="10px" mt="20px" mb="20px" mr="20px" key={index} onClick={() => goToBlog(item.BlogId)} cursor="pointer">
                                     <Heading color="#FF4C29" fontSize="28px" overflow="hidden" whiteSpace="nowrap" textOverflow="ellipsis" maxW="300px">{item.Blog.title}</Heading>
                                     <Text color="#FF4C29">{new Date(`${item.createdAt}`).toLocaleDateString("en-us", {
                                         year: "numeric",

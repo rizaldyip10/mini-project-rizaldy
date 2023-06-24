@@ -20,12 +20,17 @@ export const BlogData = () => {
             .required("Please fill your blog title"),
         keywords: Yup.string()
             .required("Please fill your keyword"),
+        country: Yup.string()
+            .required("Please enter your country"),
         CategoryId: Yup.string()
             .required("Please select your category"),
         content: Yup.string()
             .required("Please enter your content"),
         file: Yup.mixed()
             .required("Image is required")
+            .test("fileSize", "File size too large", (value) => {
+                
+            })
         
     })
 

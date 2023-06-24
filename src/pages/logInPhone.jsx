@@ -16,6 +16,7 @@ import {
     Text,
     VStack,
     Stack,
+    useToast,
   
   } from "@chakra-ui/react";
   import { faUser } from "@fortawesome/free-solid-svg-icons";
@@ -36,6 +37,7 @@ import { setValue } from "../redux/userSlice";
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const phoneRegex = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
+    const toast = useToast()
   
     const RegisterSchema = Yup.object().shape({
       phone: Yup.string()
@@ -57,13 +59,26 @@ import { setValue } from "../redux/userSlice";
         dispatch(setValue(response.data.isAccountExist))
         localStorage.setItem("token", response.data.token)
         setSuccess(true)
+        toast({
+          title: "Success",
+          description: "Success loging in to your account!",
+          status: 'success',
+          duration: 1500,
+          isClosable: true
+        })
         setTimeout(() => {
           navigate("/")
         }, 2000)
       } catch (err) {
         console.log(err.response.data);
         setSuccess(false)
-        alert(err.response.data)
+        toast({
+          title: "Error",
+          description: err.response.data,
+          status: 'error',
+          duration: 3500,
+          isClosable: true
+        })
       }
     };
     return (

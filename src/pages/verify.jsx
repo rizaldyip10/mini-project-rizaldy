@@ -1,4 +1,4 @@
-import { Flex, VStack, Heading, Text,  Button } from "@chakra-ui/react"
+import { Flex, VStack, Heading, Text,  Button, useToast } from "@chakra-ui/react"
 import { useNavigate, useParams } from "react-router-dom"
 import Axios from 'axios'
 import { Formik } from "formik"
@@ -7,6 +7,7 @@ import { Formik } from "formik"
 export const VerifyPage = () => {
     const { token } = useParams() 
     const navigate = useNavigate()
+    const toast = useToast()
 
     const url = "http://localhost:3000/"
 
@@ -18,11 +19,27 @@ export const VerifyPage = () => {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 }})
-            navigate('/loginbyname')
+                toast({
+                    title: "Success",
+                    description: "Verification success!",
+                    status: 'success',
+                    duration: 1500,
+                    isClosable: true
+                  })
+                  setTimeout(() => {
+                    navigate("/loginbyname")
+                  }, 2000)
             console.log(response);
         }
         catch (err) {
             console.log(err);
+            toast({
+                title: "Error",
+                description: err.response.data,
+                status: 'error',
+                duration: 3500,
+                isClosable: true
+              })
         }
     }
     return (

@@ -1,5 +1,5 @@
 import { EmailIcon, LockIcon, PhoneIcon, ViewIcon, ViewOffIcon } from "@chakra-ui/icons"
-import { Alert, AlertDescription, AlertIcon, Box, Button, Flex, HStack, Heading, InputGroup, InputLeftElement, InputRightElement, Stack, Text, VStack } from "@chakra-ui/react"
+import { Alert, AlertDescription, AlertIcon, Box, Button, Flex, HStack, Heading, InputGroup, InputLeftElement, InputRightElement, Stack, Text, VStack, useToast } from "@chakra-ui/react"
 import { faUser } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Form, Formik } from "formik"
@@ -18,6 +18,7 @@ export const SignUp = () => {
     const [success, setSuccess] = useState(false)
     const { token } = useParams()
     const phoneRegex = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
+    const toast = useToast()
 
     const RegisterSchema = Yup.object().shape({
         username: Yup.string()
@@ -47,13 +48,28 @@ export const SignUp = () => {
                 },
             })
             setSuccess(true)
-            navigate('/')
+            toast({
+                title: "Success",
+                description: "Success registering your account!",
+                status: 'success',
+                duration: 1500,
+                isClosable: true
+              })
+              setTimeout(() => {
+                navigate("/")
+              }, 2000)
             console.log(response);
         }
         catch (err) {
             console.log(err);
             setSuccess(false)
-            alert(err.response.data)
+            toast({
+                title: "Error",
+                description: err.response.data,
+                status: 'error',
+                duration: 3500,
+                isClosable: true
+              })
         }
     }
     return (

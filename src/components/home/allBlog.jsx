@@ -69,9 +69,7 @@ export const AllBlogCard = () => {
             })}
             <Flex mt="20px">
                 <Button bgColor="#FF4C29" color="#082032" onClick={goToPrevPage} disabled={page === 1}><ArrowBackIcon /></Button>
-                {page < 2 ? null : <Button mx="5px" onClick={() => goToPage(page -1)} bgColor="#FF4C29" color="#082032">{page - 1 }</Button>}
                 <Button mx="5px" disabled bgColor="#FF4C29" color="#082032">{page}</Button>
-                <Button mx="5px" onClick={() => goToPage(page + 1)} bgColor="#FF4C29" color="#082032">{page + 1 }</Button>
                 <Button onClick={goToNextPage} disabled={page === totalPage} bgColor="#FF4C29" color="#082032"><ArrowForwardIcon /></Button>
             </Flex>
         </Flex>

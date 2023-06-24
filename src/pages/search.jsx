@@ -91,17 +91,13 @@ export const SearchPage = () => {
                     <FormControl>
                         <FormLabel color="#FF4C29">Search</FormLabel>
                         <Input color="#FF4C29" type="text" value={searchTerm} onChange={handleInputChange} borderColor="white" focusBorderColor="#FF4C29" placeholder="Search..." _placeholder={{color: "#FF4C29"}} />
-                        <Select color="#FF4C29" value={selectedCategory} onChange={handleCategoryChange} mt="10px" borderColor="white" focusBorderColor="#FF4C29">
+                        <Select color="#FF4C29" value={selectedCategory} onChange={handleCategoryChange} mt="10px" borderColor="white" focusBorderColor="#FF4C29" placeholder="Category">
                             <option value="">All</option>
                             {categories?.map((category) => (
                                 <option key={category.id} value={category.id}>
                                     {category.name}
                                 </option>
                             ))}
-                        </Select>
-                        <Select color="#FF4C29" placeholder="Sort" _placeholder={{color: "#FF4C29"}} mt="10px" borderColor="white" focusBorderColor="#FF4C29">
-                            <option onClick={handleEarliest}>Earliest</option>
-                            <option onClick={handleLatest}>Latest</option>
                         </Select>
                         <Button mt={4} onClick={handleSearch} bgColor="#FF4C29" color="#082032" _hover={{transform: "scale(1.1)"}}>
                             Search
@@ -111,12 +107,22 @@ export const SearchPage = () => {
                 <Box className="search-content" bgColor="#082032" w="570px" h="700px" mr="30px" p="10px 20px" borderRadius="20px" boxShadow="2px 2px 5px black">
                     <Flex justifyContent="space-between">
                         <Heading color="#FF4C29" fontSize="18px">Here are your search results</Heading>
+                        <Menu>
+                            <MenuButton >
+                                <Button bgColor="#FF4C29" color="#082032" h="20px"  >Sort</Button>
+                            </MenuButton>
+                            <MenuList>
+                                <MenuItem color="#FF4C29" cursor="pointer" onClick={handleEarliest}>Earliest</MenuItem>
+                                <Divider color="gray.900" />
+                                <MenuItem color="#FF4C29" cursor="pointer" onClick={handleLatest}>Latest</MenuItem>
+                            </MenuList>
+                        </Menu>
                     </Flex>
                     {searchResults?.map((item) => (
                         <Box key={item.id} mt="15px" onClick={() => onClick(item?.id)} cursor="pointer">
                             <Box>
                                 <HStack spacing={1} color="#FF4C29">
-                                    <Avatar bg="#FF4C29" size="lg" src={`https://minpro-blog.purwadhikabootcamp.com/${item.User.imgProfile}`} mr="20px" />
+                                    <Avatar bg="#FF4C29" size="lg" src={`https://minpro-blog.purwadhikabootcamp.com/${item.imageURL}`} mr="20px" />
                                     <Box>
                                         <Text fontSize="14px">{item.User.username}</Text>
                                         <Heading fontSize="24px" overflow="hidden" whiteSpace="nowrap" textOverflow="ellipsis" maxW="400px">{item.title}</Heading>
@@ -133,13 +139,11 @@ export const SearchPage = () => {
                     ))}
                      <Flex mt="20px" justifyContent="center">
                         <Button bgColor="#FF4C29" color="#082032" onClick={goToPrevPage} disabled={page === 1}><ArrowBackIcon /></Button>
-                        {page < 2 ? null : <Button mx="5px" bgColor="#FF4C29" color="#082032" onClick={() => goToPage(page -1)}>{page - 1 }</Button>}
                         <Button mx="5px" disabled bgColor="#FF4C29" color="#082032">{page}</Button>
-                        {page === 1 ? null : <Button mx="5px" bgColor="#FF4C29" color="#082032" onClick={() => goToPage(page + 1)} disabled={page === totalPage}>{page + 1 }</Button>}
                         <Button onClick={goToNextPage} disabled={page === totalPage} bgColor="#FF4C29" color="#082032" ><ArrowForwardIcon /></Button>
                     </Flex>
                 </Box>
-                <Box className="search-section" h="300px" w="250px">
+                <Box className="search-section" h="630px" w="250px">
                     <CardSide />
                 </Box>
             </Flex>

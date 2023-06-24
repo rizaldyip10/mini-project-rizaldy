@@ -61,13 +61,13 @@ export const BlogPage = () => {
                         <Divider orientation="vertical" />
                         <LikeButton blogId={blog?.id} />
                         <Divider orientation="vertical" />
-                        {user === username ? <DeleteButton /> : null}
+                        {user === username ? <DeleteButton color="#FF4C29" /> : null}
                     </HStack>
                     <Box w="700px">
                         <Text mt="30px" color="#FF4C29">{blog?.content}</Text>
                     </Box>
                 </Box>
-                <Box color="#2C394B" className="trending-blog" w="20%" h="400px" borderRadius="20px">
+                <Box color="#2C394B" className="trending-blog" w="20%" h="630px" borderRadius="20px">
                     <CardSide />
                 </Box>
             </Flex>

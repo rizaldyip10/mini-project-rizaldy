@@ -16,8 +16,8 @@ export const CardSide = () => {
 
     const getContent = async (content) => {
         try {
-            const response = await Axios.get('https://minpro-blog.purwadhikabootcamp.com/api/blog?size=8', content)
-            const resFav = await Axios.get('https://minpro-blog.purwadhikabootcamp.com/api/blog/pagFav?page=1&orderBy=total_fav&sort=DESC', content)
+            const response = await Axios.get('https://minpro-blog.purwadhikabootcamp.com/api/blog?size=10', content)
+            const resFav = await Axios.get('https://minpro-blog.purwadhikabootcamp.com/api/blog/pagFav?page=1&orderBy=total_fav&sort=DESC&size=10', content)
             setBlog(response.data.result)
             setFav(resFav.data.result)
         }
@@ -29,7 +29,7 @@ export const CardSide = () => {
         getContent()
     }, [])
     return (
-        <Tabs variant="enclosed" isFitted bgColor="#082032" borderRadius="20px" boxShadow="2px 2px 5px black">
+        <Tabs variant="enclosed" isFitted bgColor="#082032" h="100%" borderRadius="20px" boxShadow="2px 2px 5px black">
             <TabList color="#FF4C29">
                 <Tab>Latest</Tab>
                 <Tab>Popular</Tab>

@@ -1,5 +1,5 @@
 import { LockIcon, ViewIcon, ViewOffIcon } from "@chakra-ui/icons"
-import { Box, Button, Flex, Heading, InputGroup, InputLeftElement, InputRightElement, Stack, Text, VStack } from "@chakra-ui/react"
+import { Box, Button, Flex, Heading, InputGroup, InputLeftElement, InputRightElement, Stack, Text, VStack, useToast } from "@chakra-ui/react"
 import  Axios  from "axios"
 import * as Yup from "yup"
 import { Form, Formik } from "formik"
@@ -14,6 +14,7 @@ export const ResetPage = () => {
     const navigate = useNavigate()
     const [show, setShow] = useState(false)
     const handleClick = () => setShow(!show)
+    const toast = useToast()
     console.log(resetToken);
 
     const PasswordResetSchema = Yup.object().shape({
@@ -34,12 +35,27 @@ export const ResetPage = () => {
                 }
             })
             setSuccess(true)
-            navigate('/')
+            toast({
+                title: "Success",
+                description: "Successfuly reset password!",
+                status: 'success',
+                duration: 1500,
+                isClosable: true
+              })
+              setTimeout(() => {
+                navigate("/login")
+              }, 2000)
             console.log(response);
         } catch (err) {
             console.log(err);
             setSuccess(false)
-            // alert(err.response.data)
+            toast({
+                title: "Error",
+                description: err.response.data,
+                status: 'error',
+                duration: 3500,
+                isClosable: true
+              })
         }
     }
     return (
