@@ -71,7 +71,7 @@ export const LogInByName = () => {
       setSuccess(false)
       toast({
         title: "Error",
-        description: err.response.data,
+        description: "Oopss... something wrong",
         status: 'error',
         duration: 3500,
         isClosable: true,

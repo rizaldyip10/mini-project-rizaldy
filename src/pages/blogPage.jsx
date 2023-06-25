@@ -70,7 +70,7 @@ export const BlogPage = () => {
                         </Box>
                     </Flex>
                 </Box>
-                <Box color="#2C394B" className="trending-blog" w="20%" h="630px" borderRadius="20px">
+                <Box color="#2C394B" className="trending-blog" ml="30px" w="20%" h="630px" borderRadius="20px">
                     <CardSide />
                 </Box>
             </Flex>

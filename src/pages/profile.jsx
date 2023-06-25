@@ -4,10 +4,13 @@ import { Footer } from "../components/global/footer"
 import { ToTop } from "../components/global/toTop"
 import { UserTabs } from "../components/profile/userTabs"
 import { UserCard } from "../components/profile/userProfile"
+import { useNavigate } from "react-router-dom"
 
 
 export const UserProfile = () => {
-    return (
+    const token = localStorage.getItem("token")
+    const navigate = useNavigate()
+    return token ? (
         <Box id="bg-color" bgColor="#2C394B">
             <Box id="header">
                 <NavBar />
@@ -21,5 +24,5 @@ export const UserProfile = () => {
             </Flex>
             <Footer />
         </Box>
-    )
+    ) : navigate("/loginbyname")
 }
