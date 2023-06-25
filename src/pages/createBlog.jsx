@@ -2,7 +2,7 @@ import { Box, Flex, Heading, VStack } from "@chakra-ui/react"
 import { NavBar } from "../components/global/navbar"
 import { Footer } from "../components/global/footer"
 import { BlogData } from "../components/create-blog/blogData"
-import { useNavigate } from "react-router-dom"
+import { Navigate, useNavigate } from "react-router-dom"
 
 
 export const CreateBlog = () => {
@@ -21,5 +21,5 @@ export const CreateBlog = () => {
             </Flex>
             <Footer />
         </Box>
-    ) : navigate("/loginbyname")
+    ) : (<Navigate to="/loginbyname" />)
 }

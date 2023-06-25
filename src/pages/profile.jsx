@@ -4,7 +4,7 @@ import { Footer } from "../components/global/footer"
 import { ToTop } from "../components/global/toTop"
 import { UserTabs } from "../components/profile/userTabs"
 import { UserCard } from "../components/profile/userProfile"
-import { useNavigate } from "react-router-dom"
+import { Navigate, useNavigate } from "react-router-dom"
 
 
 export const UserProfile = () => {
@@ -24,5 +24,5 @@ export const UserProfile = () => {
             </Flex>
             <Footer />
         </Box>
-    ) : navigate("/loginbyname")
+    ) : (<Navigate to="/loginbyname" />)
 }
