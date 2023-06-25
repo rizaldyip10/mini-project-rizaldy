@@ -1,4 +1,4 @@
-import { Avatar, Box, Button, Flex, Menu, MenuButton, MenuDivider, MenuItem, MenuList, Text } from "@chakra-ui/react"
+import { Avatar, Box, Button, Flex, Menu, MenuButton, MenuDivider, MenuItem, MenuList, Text, useToast } from "@chakra-ui/react"
 import { AddIcon, SearchIcon } from '@chakra-ui/icons'
 import { Link, useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -10,9 +10,17 @@ export const NavBar = () => {
     const data = useSelector((state) => state.user.value)
     console.log(data);
     const navigate = useNavigate()
+    const toast = useToast()
 
     const onLogOut = () => {
         localStorage.removeItem("token")
+        toast({
+            title: "Logged out!",
+            description: "You are logged out from your account!",
+            status: "success",
+            duration: 1500,
+            position: "top"
+        })
         setTimeout(() => {
             navigate('/')
         }, 2000)
