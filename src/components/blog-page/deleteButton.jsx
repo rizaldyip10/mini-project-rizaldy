@@ -31,7 +31,7 @@ export const DeleteButton = () => {
 
     return (
         <Box>
-            <Button w="0px" onClick={onDelete} variant="unstyled"><FontAwesomeIcon icon={faTrash} /></Button>
+            <Button w="0px" onClick={onDelete} variant="unstyled"><FontAwesomeIcon icon={faTrash} color="#FF4C29" /></Button>
         </Box>
     )
 }

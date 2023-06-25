@@ -35,13 +35,20 @@ export const LikeButton = ({blogId}) => {
             console.log(response);
         } catch (err) {
             console.log(err);
+            toast({
+                title: "Error",
+                description: "Oopss.. there's something wrong",
+                status: "error",
+                duration: 2500,
+                position: "top"
+            })
         }
     }
 
     return(
         <Formik>
             <Box>
-                <Button variant="unstyled" onClick={onClick}>{isLiked ? <FontAwesomeIcon icon={faHeart} style={{color: "#FF4C29"}}/> : <FontAwesomeIcon icon={faHeart} style={{color: "white"}}/> }</Button>
+                <Button variant="unstyled" _active={{transform: "scale(1.1)"}} onClick={onClick}>{isLiked ? <FontAwesomeIcon icon={faHeart} style={{color: "#FF4C29"}}/> : <FontAwesomeIcon icon={faHeart} style={{color: "white"}}/> }</Button>
             </Box>
         </Formik>
     )
