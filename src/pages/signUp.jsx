@@ -86,11 +86,6 @@ export const SignUp = () => {
         {(props) => {
             return (
             <Flex as={Form} minH="100vh" align="center" justify="center" bgColor="#2C394B">
-                <HStack>
-                    <Alert>
-
-                    </Alert>
-                </HStack>
                 <VStack>
                     <Stack textAlign="center">
                         <Heading color="white">Create your account!</Heading>
